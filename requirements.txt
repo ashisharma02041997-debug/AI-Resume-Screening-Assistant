@@ -1,0 +1,14 @@
+
+ipykernel
+langchain
+langchain-core
+langchain-community
+langchain-google-genai
+langchain-text-splitters
+python-dotenv
+streamlit
+faiss-cpu
+pypdf
+pydantic
+pandas
+google-genai
