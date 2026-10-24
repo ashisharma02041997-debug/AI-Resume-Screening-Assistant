@@ -46,15 +46,29 @@ st.info(
 # 2. LOAD GEMINI API KEY
 # --------------------------------------------------
 
-load_dotenv(override=True)
+# Load Gemini API key
 
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Get project directory
+BASE_DIR = Path(__file__).resolve().parent
+
+# Locate .env file
+env_path = BASE_DIR / ".env"
+
+# Load environment variables
+load_dotenv(dotenv_path=env_path, override=True)
+
+# Read Gemini API key
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 
 if not gemini_api_key:
-    st.error("GEMINI_API_KEY not found in .env file.")
+    st.error("Gemini API key not found. Please check your .env file.")
     st.stop()
 
-# Prevent conflicting API key configuration
+# Remove conflicting environment variable
 os.environ.pop("GOOGLE_API_KEY", None)
 
 
